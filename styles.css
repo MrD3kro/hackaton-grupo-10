@@ -1,0 +1,59 @@
+/* Variables globales */
+:root {
+  --rovent-orange: #F6581C;
+  --rovent-dark: #1C1C1C;
+  --rovent-beige: #F3EAE2;
+  --rovent-brown: #996A53;
+  --rovent-olive: #869953;
+  --font-heading: 'Bebas Neue', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--rovent-dark);
+}
+
+/* Tipografía Header / Hero */
+h1, h2, h3, .navbar-brand {
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+}
+
+/* Clases de utilidad cromática */
+.bg-rovent-orange { background-color: var(--rovent-orange) !important; }
+.bg-rovent-beige { background-color: var(--rovent-beige) !important; }
+.text-rovent-orange { color: var(--rovent-orange) !important; }
+
+/* Botón personalizado */
+.btn-rovent-orange {
+  background-color: var(--rovent-orange);
+  color: #ffffff;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-rovent-orange:hover {
+  background-color: #d8450e;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+/* Hero section bg */
+.hero-section {
+  min-height: 75vh;
+  background: linear-gradient(rgba(28, 28, 28, 0.5), rgba(28, 28, 28, 0.8)), 
+              url('https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+}
+.hero-title {
+  line-height: 0.95;
+}
+/* Tarjetas de producto de bootstrap */
+.card-rovent {
+  background-color: #262626;
+  border: 1px solid #333;
+  border-radius: 8px;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.card-rovent:hover {
+  transform: translateY(-5px);
+  border-color: var(--rovent-orange);
+}
