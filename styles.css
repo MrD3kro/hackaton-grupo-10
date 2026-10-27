@@ -20,6 +20,12 @@ h1, h2, h3, .navbar-brand {
   letter-spacing: 1px;
 }
 
+.rovent-logo {
+  display: block;
+  height: 40px;
+  width: auto;
+}
+
 /* Clases de utilidad cromática */
 .bg-rovent-orange { background-color: var(--rovent-orange) !important; }
 .bg-rovent-beige { background-color: var(--rovent-beige) !important; }
