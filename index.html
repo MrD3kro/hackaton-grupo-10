@@ -122,28 +122,33 @@
             </section>
             <!-- ========= Hero ============= -->
 
-            <!-- Carrito offcanvas -->
-            <div class="offcanvas offcanvas-end " data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-                aria-labelledby="offcanvasWithBothOptionsLabel">
+            <!-- Carrito lateral con productos en el navegador. -->
+            <aside class="offcanvas offcanvas-end text-bg-dark rovent-cart" data-bs-scroll="true" tabindex="-1"
+                id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">TU CARRITO</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-
-                    <!-- Agregar div container de cada elemento que se agrega al carrito JS -->
-
-
-                </div>
-                <div class="offcanvas-footer ">
-                    <span class="h2"> SUBTOTAL</span>
-                    <div class="container row">
-                        <button id="btnVaciar">VACIAR CARRITO</button>
-                        <button id="bntFinalizar">FINALIZAR COMPRA</button>
-
+                    <div>
+                        <h2 class="offcanvas-title h4 mb-1" id="offcanvasWithBothOptionsLabel">TU CARRITO</h2>
+                        <span class="cart-storage-status">(LocalStorage Activo)</span>
                     </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Cerrar carrito"></button>
                 </div>
-            </div>
+                <div class="offcanvas-body cart-items" id="cart-items" aria-live="polite">
+                    <!-- JavaScript inserta aquí los productos y sus controles de cantidad. -->
+                </div>
+                <div class="cart-footer">
+                    <div class="cart-subtotal">
+                        <span>Subtotal</span>
+                        <strong id="cart-total">$0</strong>
+                    </div>
+                    <button class="btn btn-outline-danger w-100" id="clear-cart-btn" type="button">
+                        Vaciar carrito
+                    </button>
+                    <button class="btn btn-rovent-checkout w-100" id="checkout-btn" type="button">
+                        Finalizar compra
+                    </button>
+                </div>
+            </aside>
             <!--==============Carrito offcanvas=====================  -->
 
 
