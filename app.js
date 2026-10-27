@@ -1,5 +1,5 @@
 const catalogoProductos = document.getElementById("productos");
-const html="";
+let html="";
 
 const CATALOGO = [
     {
@@ -50,7 +50,7 @@ const CATALOGO = [
         deporte: "Volleyball",
         marca: "VoleiSport",
         descripcion: "Balón ligero para partidos y entrenamientos de voleibol.",
-        Imagen: "ihttps://deportesregol.com/cdn/shop/files/1903_Balon_Voleibol_Pro_Microfibra_V-5000_Lateral.jpg?v=1742200197&width=1024"
+        Imagen: "https://deportesregol.com/cdn/shop/files/1903_Balon_Voleibol_Pro_Microfibra_V-5000_Lateral.jpg?v=1742200197&width=1024"
     },
     {
         id: 6,
@@ -312,25 +312,41 @@ Deportes:
 */
 
 
-for (const producto of catalogoProductos) {
+for (const producto of CATALOGO) {
     html += `
-        <li class="producto">
-            
-            <div class="contenido-producto">
-                <h3>${producto.nombre}</h3>
-
+        <li class="col-12 col-sm-6 col-lg-4 col-xl-3">
+            <article class="product-card h-100">
                 <img
-                src="${producto.Imagen}"
-                alt="Fotografía de ${producto.nombre}"
+                    src="${producto.Imagen}"
+                    alt="Fotografía de ${producto.nombre}"
+                    class="product-image"
+                    loading="lazy"
+                    decoding="async"
                 >
-
-                <p>${producto.descripcion}</p>
-                <p>${producto.marca}</p>
-                <p>${producto.precio}</p>
-
-            </div>
+                <div class="product-content">
+                    <p class="product-category">${producto.categoria}</p>
+                    <h3 class="product-name">${producto.nombre}</h3>
+                    <p class="product-description">${producto.descripcion}</p>
+                    <p class="product-brand">${producto.marca}</p>
+                    <div class="product-purchase">
+                        <p class="product-price">${producto.precio.toLocaleString("es-CO", {
+                            style: "currency",
+                            currency: "COP",
+                            maximumFractionDigits: 0
+                        })}</p>
+                        <button
+                            class="btn btn-rovent-primary agregar-carrito"
+                            data-id="${producto.id}"
+                            type="button"
+                            aria-label="Agregar ${producto.nombre} al carrito"
+                        >
+                            Agregar
+                        </button>
+                    </div>
+                </div>
+            </article>
         </li>
     `;
 }
 
-productos.innerHTML = html;
+catalogoProductos.innerHTML = html;

@@ -2,6 +2,8 @@
 :root {
   --rovent-orange: #F6581C;
   --rovent-dark: #1C1C1C;
+  --rovent-nav-bg: rgba(28, 28, 28, 0.9);
+  --rovent-border: rgba(255, 255, 255, 0.1);
   --rovent-beige: #F3EAE2;
   --rovent-brown: #996A53;
   --rovent-olive: #869953;
@@ -12,56 +14,587 @@
 body {
   font-family: var(--font-body);
   background-color: var(--rovent-dark);
+  color: #f5f5f5;
 }
 
-/* Tipografía Header / Hero */
-h1, h2, h3, .navbar-brand {
+/* Tipografía de títulos y marca. */
+h1,
+h2,
+h3,
+.navbar-brand,
+.footer-brand {
   font-family: var(--font-heading);
   letter-spacing: 1px;
 }
 
-/* Clases de utilidad cromática */
-.bg-rovent-orange { background-color: var(--rovent-orange) !important; }
-.bg-rovent-beige { background-color: var(--rovent-beige) !important; }
-.text-rovent-orange { color: var(--rovent-orange) !important; }
-
-/* Botón personalizado */
-.btn-rovent-orange {
-  background-color: var(--rovent-orange);
-  color: #ffffff;
-  border: none;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+.skip-link {
+  position: fixed;
+  z-index: 1100;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.75rem 1rem;
+  transform: translateY(-160%);
+  border-radius: 0.5rem;
+  background-color: #fff;
+  color: var(--rovent-dark);
 }
-.btn-rovent-orange:hover {
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Acción principal reutilizada por las tarjetas y el hero. */
+.btn-rovent-primary {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.1rem;
+  border: 1px solid var(--rovent-orange);
+  border-radius: 8px;
+  background-color: var(--rovent-orange);
+  color: #fff;
+  font-weight: 700;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.btn-rovent-primary:hover,
+.btn-rovent-primary:focus-visible {
+  transform: translateY(-2px);
   background-color: #d8450e;
-  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(246, 88, 28, 0.24);
+  color: #fff;
+}
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--rovent-dark);
+}
+
+.hero-section::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 35%, rgba(0, 0, 0, 0.55));
+  content: "";
+  pointer-events: none;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-content {
+  position: absolute;
+  z-index: 1;
+  right: clamp(1.5rem, 8vw, 8rem);
+  bottom: clamp(2rem, 9vw, 8rem);
+  left: clamp(1.5rem, 8vw, 8rem);
+  max-width: 700px;
+}
+
+.hero-eyebrow,
+.section-eyebrow {
+  margin-bottom: 0.75rem;
+  color: var(--rovent-orange);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.hero-content h1 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(2.8rem, 7vw, 6rem);
+  line-height: 0.95;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero-description {
+  max-width: 34rem;
+  margin-bottom: 1.5rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+.brand-promise {
+  padding-block: clamp(3.5rem, 8vw, 7rem);
+  border-bottom: 1px solid var(--rovent-border);
+  background:
+    radial-gradient(ellipse at 85% 50%, rgba(246, 88, 28, 0.1), transparent 34%),
+    var(--rovent-dark);
+}
+
+.brand-promise h2,
+.catalog-header h2 {
+  margin-bottom: 0.75rem;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+.brand-promise .container > p:last-child {
+  max-width: 42rem;
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.68);
+  line-height: 1.7;
+}
+
+.catalogo {
+  background-color: var(--rovent-dark);
+}
+
+.catalog-container {
+  padding-block: clamp(3.5rem, 7vw, 6rem);
+}
+
+.catalog-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.catalog-header .section-eyebrow {
+  margin-bottom: 0.5rem;
+}
+
+.catalog-header h2 {
+  margin-bottom: 0;
+}
+
+.catalog-header > p {
+  max-width: 20rem;
+  margin-bottom: 0.35rem;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.6;
+}
+
+.product-card {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  background: #242424;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(246, 88, 28, 0.55);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #303030;
+}
+
+.product-content {
+  display: flex;
+  min-height: 250px;
+  flex-direction: column;
+  padding: 1.1rem;
+}
+
+.product-category {
+  margin-bottom: 0.45rem;
+  color: var(--rovent-orange);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.product-name {
+  margin-bottom: 0.55rem;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height: 1.35;
+}
+
+.product-description,
+.product-brand {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.product-description {
+  margin-bottom: 0.5rem;
+}
+
+.product-brand {
+  margin-top: auto;
+  margin-bottom: 0.75rem;
+}
+
+.product-purchase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rovent-border);
+}
+
+.product-price {
+  margin: 0;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* Navbar translúcido y persistente sobre el hero. */
+.navbar-wrapper {
+  position: sticky;
+  top: 20px;
+  z-index: 1030;
+  width: 100%;
+  margin-bottom: -4rem;
+  padding-inline: 24px;
+}
+
+.rovent-navbar {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background-color: var(--rovent-nav-bg);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.rovent-navbar .navbar-brand img {
+  display: block;
+  height: auto;
+}
+
+.rovent-navbar .nav-link {
+  padding-inline: 0.9rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  transition: color 0.2s ease;
+}
+
+.rovent-navbar .nav-link:hover,
+.rovent-navbar .nav-link:focus,
+.rovent-navbar .nav-link.active {
+  color: var(--rovent-orange);
+}
+
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  order: 3;
+  gap: 0.5rem;
+}
+
+.rovent-navbar .navbar-brand {
+  order: 1;
+}
+
+.rovent-navbar .navbar-collapse {
+  order: 2;
+}
+
+.nav-icon-button {
+  position: relative;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-icon-button:hover,
+.nav-icon-button:focus-visible {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--rovent-orange);
+}
+
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  min-width: 18px;
+  height: 18px;
+  place-items: center;
+  padding: 0 4px;
+  border: 2px solid #1c1c1c;
+  border-radius: 50%;
+  background-color: var(--rovent-orange);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Panel lateral y lista de productos del carrito. */
+.rovent-cart {
+  --bs-dark-rgb: 28, 28, 28;
+  --bs-bg-opacity: 0.96;
+  --bs-offcanvas-width: min(440px, 100vw);
+  border-left: 1px solid var(--rovent-border);
+  border-radius: 16px 0 0 16px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.rovent-cart .offcanvas-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--rovent-border);
+}
+
+.rovent-cart .offcanvas-title {
+  letter-spacing: 0.06em;
+}
+
+.cart-storage-status {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.75rem;
+}
+
+.cart-items {
+  min-height: 0;
+  padding: 1rem 1.5rem;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+  scrollbar-width: thin;
+}
+
+.cart-items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.cart-empty {
+  padding-block: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--rovent-border);
+}
+
+.cart-item-image {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  background-color: #292929;
+}
+
+.cart-item-name {
+  margin: 0 0 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.cart-item-price {
+  color: var(--rovent-orange);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cart-quantity-button,
+.cart-remove-button {
+  display: inline-grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid var(--rovent-border);
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+}
+
+.cart-quantity-button:hover,
+.cart-remove-button:hover {
+  border-color: var(--rovent-orange);
+  color: var(--rovent-orange);
+}
+
+.cart-quantity {
+  min-width: 1.25rem;
+  text-align: center;
+}
+
+.cart-footer {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+  border-top: 1px solid var(--rovent-border);
+}
+
+.cart-subtotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.cart-subtotal strong {
+  color: var(--rovent-orange);
+  font-size: 1.15rem;
+}
+
+.btn-rovent-checkout {
+  padding: 0.8rem 1rem;
+  border: 0;
+  border-radius: 8px;
+  background-color: var(--rovent-orange);
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-rovent-checkout:hover,
+.btn-rovent-checkout:focus-visible {
+  background-color: #ff6a32;
+  box-shadow: 0 6px 16px rgba(246, 88, 28, 0.25);
+  color: #fff;
   transform: translateY(-2px);
 }
-/* Hero section bg */
-.hero-section {
-  min-height: 75vh;
-  background: linear-gradient(rgba(28, 28, 28, 0.5), rgba(28, 28, 28, 0.8)), 
-              url('https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-}
-.hero-title {
-  line-height: 0.95;
-}
-/* Tarjetas de producto de bootstrap */
-.card-rovent {
-  background-color: #262626;
-  border: 1px solid #333;
-  border-radius: 8px;
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-.card-rovent:hover {
-  transform: translateY(-5px);
-  border-color: var(--rovent-orange);
+.site-footer {
+  padding-block: 4rem;
+  border-top: 1px solid var(--rovent-border);
+  background-color: #111;
 }
 
-.bg-hero {
-  background-image: url('assets/cover-img.jpg');
-  background-size: cover;          /* Scales image to fill the container without stretching */
-  background-position: center;     /* Centers the image perfectly */
-  background-repeat: no-repeat;    /* Prevents tiling */
-  min-height: 80vh;               /* Makes the container full-viewport height */
+.footer-brand img {
+  display: block;
+  width: min(140px, 100%);
+  height: auto;
+}
+
+.footer-heading {
+  margin-bottom: 1rem;
+  color: #fff;
+  font-size: 1.15rem;
+  text-transform: uppercase;
+}
+
+.footer-copy {
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.site-footer .nav-link {
+  padding: 0.25rem 0;
+  color: rgba(255, 255, 255, 0.68);
+  transition: color 0.2s ease;
+}
+
+.site-footer .nav-link:hover,
+.site-footer .nav-link:focus-visible {
+  color: var(--rovent-orange);
+}
+
+@media (max-width: 991.98px) {
+  .navbar-wrapper {
+    padding-inline: 16px;
+  }
+
+  .navbar-controls {
+    order: 2;
+    gap: 0.25rem;
+  }
+
+  .rovent-navbar .navbar-collapse {
+    order: 3;
+    padding-top: 0.75rem;
+  }
+
+  .rovent-navbar .navbar-nav {
+    align-items: center;
+  }
+
+}
+
+@media (max-width: 575.98px) {
+  .rovent-navbar {
+    padding-inline: 0.65rem;
+    border-radius: 16px;
+  }
+
+  .hero-content {
+    right: 1rem;
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 0.35rem;
+    font-size: 0.65rem;
+  }
+
+  .hero-content h1 {
+    margin-bottom: 0.35rem;
+    font-size: clamp(2rem, 9vw, 2.5rem);
+  }
+
+  .hero-description {
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.35;
+  }
+
+  .btn-rovent-primary {
+    min-height: 40px;
+    padding: 0.55rem 0.9rem;
+  }
+
+  .catalog-header {
+    align-items: start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .product-content {
+    min-height: 230px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
