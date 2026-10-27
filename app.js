@@ -1,3 +1,5 @@
+const catalogoProductos = document.getElementById("productos");
+const html="";
 
 const CATALOGO = [
     {
@@ -8,7 +10,7 @@ const CATALOGO = [
         deporte: "Futbol",
         marca: "Golazo",
         descripcion: "Balón resistente para entrenamientos y partidos de fútbol.",
-        Imagen: "imagenes/balon-futbol-pro.jpg"
+        Imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa0QhwHBbLz6XX-A39b7D7cqDwL1pEwFfpV98TBbbSr4Q_wmmejtYwTEwh&s=10"
     },
     {
         id: 2,
@@ -18,7 +20,7 @@ const CATALOGO = [
         deporte: "Futbol",
         marca: "Cancha",
         descripcion: "Balón versátil para prácticas y partidos recreativos.",
-        Imagen: "imagenes/balon-futbol-entrenamiento.jpg"
+        Imagen: "https://fenixdeportes.com.co/cdn/shop/files/HyperNaranja_5.jpg?v=1715741088&width=777"
     },
     {
         id: 3,
@@ -28,7 +30,7 @@ const CATALOGO = [
         deporte: "Baloncesto",
         marca: "AroMax",
         descripcion: "Balón con buen agarre para jugar en canchas interiores y exteriores.",
-        Imagen: "imagenes/balon-baloncesto-clasico.jpg"
+        Imagen: "https://contents.mediadecathlon.com/p3035867/k$394b3edd0e96dcc6d447807df1826606/picture.jpg"
     },
     {
         id: 4,
@@ -38,7 +40,7 @@ const CATALOGO = [
         deporte: "Baloncesto",
         marca: "DunkPro",
         descripcion: "Balón de alto agarre para entrenamientos exigentes.",
-        Imagen: "imagenes/balon-baloncesto-pro.jpg"
+        Imagen: "https://molten.com.co/cdn/shop/files/balon-baloncesto-33-caucho-b33t2000-1310966.png?v=1761266795"
     },
     {
         id: 5,
@@ -48,7 +50,7 @@ const CATALOGO = [
         deporte: "Volleyball",
         marca: "VoleiSport",
         descripcion: "Balón ligero para partidos y entrenamientos de voleibol.",
-        Imagen: "imagenes/balon-volleyball.jpg"
+        Imagen: "ihttps://deportesregol.com/cdn/shop/files/1903_Balon_Voleibol_Pro_Microfibra_V-5000_Lateral.jpg?v=1742200197&width=1024"
     },
     {
         id: 6,
@@ -58,7 +60,7 @@ const CATALOGO = [
         deporte: "Volleyball",
         marca: "ArenaPlay",
         descripcion: "Balón para jugar voleibol recreativo en la playa.",
-        Imagen: "imagenes/balon-volleyball-playa.jpg"
+        Imagen: "https://contents.mediadecathlon.com/p2637123/k$c375c4483682da4e8bbd309dda22e10a/picture.jpg"
     },
     {
         id: 7,
@@ -68,7 +70,7 @@ const CATALOGO = [
         deporte: "Tennis",
         marca: "MatchPoint",
         descripcion: "Pelotas para prácticas y partidos recreativos de tenis.",
-        Imagen: "imagenes/pelotas-tenis.jpg"
+        Imagen: "https://deportesregol.com/cdn/shop/files/7483_Pelota_Tenis_Campo_x3pcs.jpg?v=1742202798"
     },
     {
         id: 8,
@@ -78,7 +80,7 @@ const CATALOGO = [
         deporte: "Futbol",
         marca: "TrailStep",
         descripcion: "Calzado deportivo cómodo para calentamientos y entrenamiento físico.",
-        Imagen: "imagenes/tenis-entrenamiento-futbol.jpg"
+        Imagen: "https://cdn.shopify.com/s/files/1/0595/8628/1554/files/6000051-016_Y81_1.jpg?v=1785795666"
     },
     {
         id: 9,
@@ -88,7 +90,7 @@ const CATALOGO = [
         deporte: "Futbol",
         marca: "Golazo",
         descripcion: "Guayos con tacos para mejorar la tracción en césped natural.",
-        Imagen: "imagenes/guayos-cesped-natural.jpg"
+        Imagen: "https://http2.mlstatic.com/D_NQ_NP_881786-MCO106005083623_012026-O.webp"
     },
     {
         id: 10,
@@ -98,7 +100,7 @@ const CATALOGO = [
         deporte: "Futbol",
         marca: "Cancha",
         descripcion: "Calzado con suela multitaco para canchas de césped sintético.",
-        Imagen: "imagenes/guayos-cesped-sintetico.jpg"
+        Imagen: "https://http2.mlstatic.com/D_NQ_NP_601073-CBT112295672885_052026-O.webp"
     },
     {
         id: 11,
@@ -108,7 +110,7 @@ const CATALOGO = [
         deporte: "Patinaje",
         marca: "RuedaLibre",
         descripcion: "Patines en línea para practicar y recorrer distancias recreativas.",
-        Imagen: "imagenes/patines-linea.jpg"
+        Imagen: "https://www.cougar.com.co/cdn/shop/files/MZS303_NEGRO.jpg?v=1771944541"
     },
     {
         id: 12,
@@ -118,7 +120,7 @@ const CATALOGO = [
         deporte: "Patinaje",
         marca: "Veloci",
         descripcion: "Patines diseñados para entrenamientos de velocidad y técnica.",
-        Imagen: "imagenes/patines-velocidad.jpg"
+        Imagen: "https://www.cougar.com.co/cdn/shop/files/SK1_ROSADO_2.jpg?v=1770062487"
     },
     {
         id: 13,
@@ -128,7 +130,7 @@ const CATALOGO = [
         deporte: "Baloncesto",
         marca: "DunkPro",
         descripcion: "Calzado con soporte y amortiguación para movimientos rápidos en cancha.",
-        Imagen: "imagenes/tenis-baloncesto.jpg"
+        Imagen: "https://contents.mediadecathlon.com/p2392995/k$28ed3b322503d0adb238c86a279778e0/picture.jpg"
     },
     {
         id: 14,
@@ -138,7 +140,7 @@ const CATALOGO = [
         deporte: "Volleyball",
         marca: "VoleiSport",
         descripcion: "Calzado con suela de agarre para desplazamientos en cancha.",
-        Imagen: "imagenes/tenis-volleyball.jpg"
+        Imagen: "https://contents.mediadecathlon.com/p2521570/k$e71ff5a3efb7088d22bca3ff352ce054/picture.jpg"
     },
     {
         id: 15,
@@ -148,7 +150,7 @@ const CATALOGO = [
         deporte: "Tennis",
         marca: "MatchPoint",
         descripcion: "Calzado con estabilidad lateral para los movimientos del tenis.",
-        Imagen: "imagenes/tenis-cancha.jpg"
+        Imagen: "https://contents.mediadecathlon.com/p2713915/k$fc1ff50a109790dde5ad30c9617c1d67/picture.jpg"
     },
     {
         id: 16,
@@ -308,3 +310,27 @@ Categorías:
 Deportes:
     Futbol, Patinaje, Baloncesto, Volleyball,Tennis
 */
+
+
+for (const producto of catalogoProductos) {
+    html += `
+        <li class="producto">
+            
+            <div class="contenido-producto">
+                <h3>${producto.nombre}</h3>
+
+                <img
+                src="${producto.Imagen}"
+                alt="Fotografía de ${producto.nombre}"
+                >
+
+                <p>${producto.descripcion}</p>
+                <p>${producto.marca}</p>
+                <p>${producto.precio}</p>
+
+            </div>
+        </li>
+    `;
+}
+
+productos.innerHTML = html;
