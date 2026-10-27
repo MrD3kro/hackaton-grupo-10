@@ -1,5 +1,5 @@
 const catalogoProductos = document.getElementById("productos");
-const html="";
+let html="";
 
 const CATALOGO = [
     {
@@ -50,7 +50,7 @@ const CATALOGO = [
         deporte: "Volleyball",
         marca: "VoleiSport",
         descripcion: "Balón ligero para partidos y entrenamientos de voleibol.",
-        Imagen: "ihttps://deportesregol.com/cdn/shop/files/1903_Balon_Voleibol_Pro_Microfibra_V-5000_Lateral.jpg?v=1742200197&width=1024"
+        Imagen: "https://deportesregol.com/cdn/shop/files/1903_Balon_Voleibol_Pro_Microfibra_V-5000_Lateral.jpg?v=1742200197&width=1024"
     },
     {
         id: 6,
@@ -312,7 +312,7 @@ Deportes:
 */
 
 
-for (const producto of catalogoProductos) {
+for (const producto of CATALOGO) {
     html += `
         <li class="producto">
             
@@ -333,4 +333,4 @@ for (const producto of catalogoProductos) {
     `;
 }
 
-productos.innerHTML = html;
+catalogoProductos.innerHTML = html;
