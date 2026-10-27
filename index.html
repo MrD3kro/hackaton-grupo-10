@@ -4,7 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rovent</title>
+    <meta name="description"
+        content="Descubre ROVENT: equipamiento deportivo seleccionado para llevar cada entrenamiento más lejos.">
+    <meta name="theme-color" content="#1C1C1C">
+    <title>ROVENT | Equipamiento deportivo</title>
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,7 +17,7 @@
 
     <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Nunito+Sans:wght@300;400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Estilos Personalizados -->
@@ -23,8 +26,10 @@
 </head>
 
 <body>
-    <!-- El encabezado flota sobre la imagen del hero. -->
-    <header class="wrapper navbar-wrapper">
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <!-- Navegación principal flotante sobre la imagen de portada. -->
+    <header class="navbar-wrapper">
         <nav class="navbar navbar-expand-lg navbar-dark rovent-navbar" aria-label="Navegación principal">
             <div class="container-fluid">
                 <!-- Logo enlazado al inicio de la tienda. -->
@@ -51,9 +56,9 @@
                     <!-- Navegación principal centrada. -->
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#inicio">INICIO</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#catalogo">FEATURES</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#catalogo">CATÁLOGO</a></li>
                         <li class="nav-item"><a class="nav-link" href="#equipo">EQUIPO</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#catalogo">TECNOLOGÍA</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#tecnologia">TECNOLOGÍA</a></li>
                     </ul>
 
                 </div>
@@ -61,122 +66,131 @@
         </nav>
     </header>
 
-    <!-- Contenido principal de la página -->
-    <main>
+    <main id="contenido">
 
-        <!-- contenedor principal -->
-        <div class=" container-xxl bd-gutter mt-3 my-md-4 bd-layout">
+        <!-- Imagen editorial a ancho completo con un mensaje y una acción principal. -->
+        <section class="hero-section" id="inicio">
+            <img class="hero-image" src="assets/cover-img.jpg"
+                alt="Atleta corriendo en una pista deportiva" fetchpriority="high">
+            <div class="hero-content">
+                <p class="hero-eyebrow">EQUIPAMIENTO PARA IR MÁS LEJOS</p>
+                <h1>Rendimiento que te mueve.</h1>
+                <p class="hero-description">Encuentra el equipo que acompaña cada uno de tus retos.</p>
+                <a class="btn btn-rovent-primary" href="#catalogo">Explorar catálogo</a>
+            </div>
+        </section>
 
-            <!-- Hero -->
-            <section class="hero-section bg-hero" id="inicio">
-                <h1 class="display-1">Rovent</h1>
-                <button class="btn btn-outline-secondary" type="button" aria-label="Abrir carrito"
-                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
-                    aria-controls="offcanvasWithBothOptions">
-                    ver carrito </button>
+        <section class="brand-promise" id="tecnologia" aria-labelledby="brand-promise-title">
+            <div class="container">
+                <p class="section-eyebrow">ROVENT / DEPORTE / OUTDOOR</p>
+                <h2 id="brand-promise-title">Tu próximo reto empieza aquí.</h2>
+                <p>Seleccionamos equipamiento para entrenar con confianza, superar tus límites y disfrutar cada movimiento.</p>
+            </div>
+        </section>
 
+        <!-- Carrito persistente implementado con el componente offcanvas de Bootstrap. -->
+        <aside class="offcanvas offcanvas-end text-bg-dark rovent-cart" data-bs-scroll="true" tabindex="-1"
+            id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas-header">
+                <div>
+                    <h2 class="offcanvas-title h4 mb-1" id="offcanvasWithBothOptionsLabel">TU CARRITO</h2>
+                    <span class="cart-storage-status">(LocalStorage Activo)</span>
+                </div>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Cerrar carrito"></button>
+            </div>
+            <div class="offcanvas-body cart-items" id="cart-items" aria-live="polite">
+                <!-- JavaScript inserta aquí los productos y sus controles de cantidad. -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-subtotal">
+                    <span>Subtotal</span>
+                    <strong id="cart-total">$0</strong>
+                </div>
+                <button class="btn btn-outline-danger w-100" id="clear-cart-btn" type="button">
+                    Vaciar carrito
+                </button>
+                <button class="btn btn-rovent-checkout w-100" id="checkout-btn" type="button">
+                    Finalizar compra
+                </button>
+            </div>
+        </aside>
+        <!--==============Carrito offcanvas=====================  -->
 
-            </section>
-            <!-- ========= Hero ============= -->
-
-            <!-- Carrito lateral con productos en el navegador. -->
-            <aside class="offcanvas offcanvas-end text-bg-dark rovent-cart" data-bs-scroll="true" tabindex="-1"
-                id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-                <div class="offcanvas-header">
+        <!-- El catálogo se renderiza desde el arreglo de productos en app.js. -->
+        <section class="catalogo" id="catalogo">
+            <div class="container catalog-container">
+                <header class="catalog-header">
                     <div>
-                        <h2 class="offcanvas-title h4 mb-1" id="offcanvasWithBothOptionsLabel">TU CARRITO</h2>
-                        <span class="cart-storage-status">(LocalStorage Activo)</span>
+                        <p class="section-eyebrow">SELECCIÓN ROVENT</p>
+                        <h2 id="catalog-title">Encuentra tu próximo favorito</h2>
                     </div>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
-                        aria-label="Cerrar carrito"></button>
-                </div>
-                <div class="offcanvas-body cart-items" id="cart-items" aria-live="polite">
-                    <!-- JavaScript inserta aquí los productos y sus controles de cantidad. -->
-                </div>
-                <div class="cart-footer">
-                    <div class="cart-subtotal">
-                        <span>Subtotal</span>
-                        <strong id="cart-total">$0</strong>
-                    </div>
-                    <button class="btn btn-outline-danger w-100" id="clear-cart-btn" type="button">
-                        Vaciar carrito
-                    </button>
-                    <button class="btn btn-rovent-checkout w-100" id="checkout-btn" type="button">
-                        Finalizar compra
-                    </button>
-                </div>
-            </aside>
-            <!--==============Carrito offcanvas=====================  -->
+                    <p>Equipo para cada entrenamiento, partido y aventura.</p>
+                </header>
+                <ul class="row g-4 list-unstyled product-grid" id="productos"
+                    aria-labelledby="catalog-title"></ul>
+            </div>
+        </section>
+    </main>
 
-
-            <!-- Catalogo -->
-            <section class="catalogo" id="catalogo">
-                <div class="container-fluid my-5">
-                    <ul class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 list-unstyled ps-0" id="productos">
-                    </ul>
-                </div>
-            </section>
-            <!-- Footer de la página  -->
-
-    <!-- FOOTER -->
-    <footer class="bg-black border-top border-secondary py-5 text-light-50">
+    <footer class="site-footer">
         <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-4">
                 <div class="col">
-                    <a href="#" class="navbar-brand d-block mb-3" aria-label="Rovent - inicio">
+                    <a href="#inicio" class="footer-brand d-block mb-3" aria-label="ROVENT, volver al inicio">
                         <img src="assets/Rovent.svg" alt="Rovent" width="140">
                     </a>
-                    <p class="small">Equipamiento deportivo de alto rendimiento para Trail Running y Outdoor.</p>
-                    <p class="small m-0">© 2026 ROVENT Inc.</p>
+                    <p class="footer-copy">Equipamiento deportivo para acompañarte en cada reto.</p>
+                    <p class="footer-copy mb-0">© 2026 ROVENT</p>
                 </div>
                 <div class="col">
-                    <h5 class="text-light text-uppercase fw-bold">Navegación</h5>
+                    <h2 class="footer-heading">Navegación</h2>
                     <ul class="nav flex-column small">
-                        <li class="nav-item mb-1"><a href="#" class="nav-link p-0 text-reset">Inicio</a></li>
-                        <li class="nav-item mb-1"><a href="#catalogo" class="nav-link p-0 text-reset">Catálogo</a></li>
-                        <li class="nav-item mb-1"><a href="#beneficios" class="nav-link p-0 text-reset">Tecnología</a>
-                        </li>
+                        <li class="nav-item"><a href="#inicio" class="nav-link">Inicio</a></li>
+                        <li class="nav-item"><a href="#catalogo" class="nav-link">Catálogo</a></li>
+                        <li class="nav-item"><a href="#tecnologia" class="nav-link">Tecnología</a></li>
                     </ul>
                 </div>
-                <div class="col" id="equipo">
-                    <h5 class="text-light text-uppercase fw-bold">Desarrolladores</h5>
+                <section class="col" id="equipo" aria-labelledby="team-heading">
+                    <h2 class="footer-heading" id="team-heading">Desarrolladores</h2>
                     <ul class="nav flex-column small">
                         <li class="nav-item mb-1">
-                            <a href="https://github.com/MrD3kro" class="nav-link p-0 text-reset" target="_blank">
+                            <a href="https://github.com/MrD3kro" class="nav-link" target="_blank"
+                                rel="noopener noreferrer">
                                 <i class="fa-brands fa-github me-1"></i> GitHub Leo (MrD3kro)
                             </a>
                         </li>
                         <li class="nav-item mb-1">
-                            <a href="https://github.com/LauraGarciaAngel" class="nav-link p-0 text-reset"
-                                target="_blank">
+                            <a href="https://github.com/LauraGarciaAngel" class="nav-link" target="_blank"
+                                rel="noopener noreferrer">
                                 <i class="fa-brands fa-github me-1"></i> GitHub Laura (Lazu24)
                             </a>
                         </li>
                         <li class="nav-item mb-1">
-                            <a href="https://github.com/Gleidy725" class="nav-link p-0 text-reset" target="_blank">
+                            <a href="https://github.com/Gleidy725" class="nav-link" target="_blank"
+                                rel="noopener noreferrer">
                                 <i class="fa-brands fa-github me-1"></i> GitHub Leidy (Gleidy725)
                             </a>
                         </li>
                         <li class="nav-item mb-1">
-                            <a href="https://github.com/Noko-MT" class="nav-link p-0 text-reset" target="_blank">
+                            <a href="https://github.com/Noko-MT" class="nav-link" target="_blank"
+                                rel="noopener noreferrer">
                                 <i class="fa-brands fa-github me-1"></i> GitHub Nicolas (Noko-MT)
                             </a>
                         </li>
                     </ul>
-                </div>
+                </section>
                 <div class="col">
-                    <h5 class="text-light text-uppercase fw-bold">Soporte</h5>
-                    <p class="small mb-1">Garantía y Devoluciones</p>
-                    <p class="small mb-0">Preguntas Frecuentes</p>
+                    <h2 class="footer-heading">Soporte</h2>
+                    <p class="footer-copy mb-1">Garantía y devoluciones</p>
+                    <p class="footer-copy mb-0">Preguntas frecuentes</p>
                 </div>
             </div>
         </div>
     </footer>
 
-            <!-- Bootstrap 5 Bundle JS -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-            <!-- Script Lógico de la aplicación -->
-            <script src="app.js"></script>
+    <!-- Bootstrap 5 Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
