@@ -314,10 +314,9 @@ Deportes:
 
 for (const producto of CATALOGO) {
     html += `
-    <div class="col ">
         <li class="producto ">
             
-            <div class="contenido-producto card " style="width: 18rem;">
+            <div class="contenido-producto card h-100">
                 <h5 class="card-title text-center">${producto.nombre}</h5>
 
                 <img
@@ -326,11 +325,11 @@ for (const producto of CATALOGO) {
                 class="card-img-top"
                 >
 
-                <p class="card-text">${producto.descripcion}</p>
-                <p class="card-text">${producto.marca}</p>
-                <p class="card-text">${producto.precio}</p>
+                <p class="card-text descripcion">${producto.descripcion}</p>
+                <p class="card-text marca">${producto.marca}</p>
+                <p class="card-text precio">${producto.precio}</p>
                 <button
-                    class="btn btn-outline-primary agregar-carrito"
+                    class="btn btn-rovent agregar-carrito"
                     data-id="${producto.id}"
                     type="button"
                 >

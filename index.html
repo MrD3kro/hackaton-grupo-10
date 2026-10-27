@@ -70,55 +70,12 @@
             <!-- Hero -->
             <section class="hero-section bg-hero" id="inicio">
                 <h1 class="display-1">Rovent</h1>
-                <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
-                    ver catalogo </button>
+                <button class="btn btn-outline-secondary" type="button" aria-label="Abrir carrito"
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
+                    aria-controls="offcanvasWithBothOptions">
+                    ver carrito </button>
 
-                <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-                    aria-labelledby="offcanvasExampleLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                    </div>
-                    <div class="offcanvas-body">
-                        <div>
-                            Some text as placeholder. In real life you can have the elements you have chosen. Like,
-                            text,
-                            images, lists, etc.
 
-                            <div class="card" style="width: 18rem;">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card’s content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                            <div class="card" style="width: 18rem;">
-                                <img src="..." class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the
-                                        bulk of the card’s content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="dropdown mt-3">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
-                                Dropdown button
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </section>
             <!-- ========= Hero ============= -->
 
@@ -155,22 +112,11 @@
             <!-- Catalogo -->
             <section class="catalogo" id="catalogo">
                 <div class="container-fluid my-5">
-                    <!-- ID DEL UL PRODUCTOS PRUEBA CON JS  -->
-                    <div class="col ">
-                        <ul class="row" id="productos">
-
-                        </ul>
-                    </div>
-
+                    <ul class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 list-unstyled ps-0" id="productos">
+                    </ul>
                 </div>
-        </div>
-        </section>
-
-        </div>
-
-    </main>
-
-    <!-- Footer de la página  -->
+            </section>
+            <!-- Footer de la página  -->
 
     <!-- FOOTER -->
     <footer class="bg-black border-top border-secondary py-5 text-light-50">
@@ -227,10 +173,10 @@
         </div>
     </footer>
 
-    <!-- Bootstrap 5 Bundle JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Script Lógico de la aplicación -->
-    <script src="app.js"></script>
+            <!-- Bootstrap 5 Bundle JS -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+            <!-- Script Lógico de la aplicación -->
+            <script src="app.js"></script>
 </body>
 
 </html>

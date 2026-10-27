@@ -22,6 +22,12 @@ h1, h2, h3, .navbar-brand {
   letter-spacing: 1px;
 }
 
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
 /* Clases de utilidad cromática */
 .bg-rovent-orange { background-color: var(--rovent-orange) !important; }
 .bg-rovent-beige { background-color: var(--rovent-beige) !important; }
