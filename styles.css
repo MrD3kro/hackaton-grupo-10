@@ -2,6 +2,7 @@
 :root {
   --rovent-orange: #F6581C;
   --rovent-dark: #1C1C1C;
+  --rovent-nav-bg: rgba(28, 28, 28, 0.9);
   --rovent-beige: #F3EAE2;
   --rovent-brown: #996A53;
   --rovent-olive: #869953;
@@ -18,12 +19,6 @@ body {
 h1, h2, h3, .navbar-brand {
   font-family: var(--font-heading);
   letter-spacing: 1px;
-}
-
-.rovent-logo {
-  display: block;
-  height: 40px;
-  width: auto;
 }
 
 /* Clases de utilidad cromática */
@@ -45,12 +40,109 @@ h1, h2, h3, .navbar-brand {
 }
 /* Hero section bg */
 .hero-section {
-  min-height: 75vh;
-  background: linear-gradient(rgba(28, 28, 28, 0.5), rgba(28, 28, 28, 0.8)), 
-              url('https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  position: relative;
+  min-height: 85vh;
+  padding: 10rem clamp(1.5rem, 8vw, 8rem) 4rem;
+  scroll-margin-top: 2rem;
 }
 .hero-title {
   line-height: 0.95;
+}
+
+/* Navbar recortado y translúcido, superpuesto al hero. */
+.navbar-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  width: 100%;
+  padding-inline: 24px;
+}
+
+.rovent-navbar {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background-color: var(--rovent-nav-bg);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.rovent-navbar .navbar-brand img {
+  display: block;
+  height: auto;
+}
+
+.rovent-navbar .nav-link {
+  padding-inline: 0.9rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  transition: color 0.2s ease;
+}
+
+.rovent-navbar .nav-link:hover,
+.rovent-navbar .nav-link:focus,
+.rovent-navbar .nav-link.active {
+  color: var(--rovent-orange);
+}
+
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  order: 3;
+  gap: 0.5rem;
+}
+
+.rovent-navbar .navbar-brand {
+  order: 1;
+}
+
+.rovent-navbar .navbar-collapse {
+  order: 2;
+}
+
+.nav-icon-button {
+  position: relative;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-icon-button:hover,
+.nav-icon-button:focus-visible {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--rovent-orange);
+}
+
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  min-width: 18px;
+  height: 18px;
+  place-items: center;
+  padding: 0 4px;
+  border: 2px solid #1c1c1c;
+  border-radius: 50%;
+  background-color: var(--rovent-orange);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  line-height: 1;
 }
 /* Tarjetas de producto de bootstrap */
 .card-rovent {
@@ -69,5 +161,36 @@ h1, h2, h3, .navbar-brand {
   background-size: cover;          /* Scales image to fill the container without stretching */
   background-position: center;     /* Centers the image perfectly */
   background-repeat: no-repeat;    /* Prevents tiling */
-  min-height: 80vh;               /* Makes the container full-viewport height */
+}
+
+@media (max-width: 991.98px) {
+  .navbar-wrapper {
+    padding-inline: 16px;
+  }
+
+  .navbar-controls {
+    order: 2;
+    gap: 0.25rem;
+  }
+
+  .rovent-navbar .navbar-collapse {
+    order: 3;
+    padding-top: 0.75rem;
+  }
+
+  .rovent-navbar .navbar-nav {
+    align-items: center;
+  }
+
+}
+
+@media (max-width: 575.98px) {
+  .rovent-navbar {
+    padding-inline: 0.65rem;
+    border-radius: 16px;
+  }
+
+  .hero-section {
+    padding-top: 9rem;
+  }
 }
