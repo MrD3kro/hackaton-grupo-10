@@ -20,6 +20,12 @@ h1, h2, h3, .navbar-brand {
   letter-spacing: 1px;
 }
 
+ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
 /* Clases de utilidad cromática */
 .bg-rovent-orange { background-color: var(--rovent-orange) !important; }
 .bg-rovent-beige { background-color: var(--rovent-beige) !important; }
@@ -45,6 +51,246 @@ h1, h2, h3, .navbar-brand {
 }
 .hero-title {
   line-height: 0.95;
+}
+
+/* Navbar recortado y translúcido, superpuesto al hero. */
+.navbar-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  width: 100%;
+  padding-inline: 24px;
+}
+
+.rovent-navbar {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 0.65rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background-color: var(--rovent-nav-bg);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.rovent-navbar .navbar-brand img {
+  display: block;
+  height: auto;
+}
+
+.rovent-navbar .nav-link {
+  padding-inline: 0.9rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  transition: color 0.2s ease;
+}
+
+.rovent-navbar .nav-link:hover,
+.rovent-navbar .nav-link:focus,
+.rovent-navbar .nav-link.active {
+  color: var(--rovent-orange);
+}
+
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  order: 3;
+  gap: 0.5rem;
+}
+
+.rovent-navbar .navbar-brand {
+  order: 1;
+}
+
+.rovent-navbar .navbar-collapse {
+  order: 2;
+}
+
+.nav-icon-button {
+  position: relative;
+  display: inline-flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-icon-button:hover,
+.nav-icon-button:focus-visible {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--rovent-orange);
+}
+
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: grid;
+  min-width: 18px;
+  height: 18px;
+  place-items: center;
+  padding: 0 4px;
+  border: 2px solid #1c1c1c;
+  border-radius: 50%;
+  background-color: var(--rovent-orange);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Panel lateral del carrito y sus elementos de lista. */
+.rovent-cart {
+  --bs-dark-rgb: 28, 28, 28;
+  --bs-bg-opacity: 0.96;
+  --bs-offcanvas-width: min(440px, 100vw);
+  border-left: 1px solid var(--rovent-border);
+  border-radius: 16px 0 0 16px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.rovent-cart .offcanvas-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--rovent-border);
+}
+
+.rovent-cart .offcanvas-title {
+  letter-spacing: 0.06em;
+}
+
+.cart-storage-status {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.75rem;
+}
+
+.cart-items {
+  min-height: 0;
+  padding: 1rem 1.5rem;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+  scrollbar-width: thin;
+}
+
+.cart-items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.cart-empty {
+  padding-block: 2rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.85rem;
+  padding-block: 1rem;
+  border-bottom: 1px solid var(--rovent-border);
+}
+
+.cart-item-image {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  background-color: #292929;
+}
+
+.cart-item-name {
+  margin: 0 0 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.cart-item-price {
+  color: var(--rovent-orange);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.cart-item-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cart-quantity-button,
+.cart-remove-button {
+  display: inline-grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border: 1px solid var(--rovent-border);
+  border-radius: 6px;
+  background: transparent;
+  color: #fff;
+}
+
+.cart-quantity-button:hover,
+.cart-remove-button:hover {
+  border-color: var(--rovent-orange);
+  color: var(--rovent-orange);
+}
+
+.cart-quantity {
+  min-width: 1.25rem;
+  text-align: center;
+}
+
+.cart-footer {
+  display: grid;
+  gap: 0.85rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+  border-top: 1px solid var(--rovent-border);
+}
+
+.cart-subtotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.cart-subtotal strong {
+  color: var(--rovent-orange);
+  font-size: 1.15rem;
+}
+
+.btn-rovent-checkout {
+  padding: 0.8rem 1rem;
+  border: 0;
+  border-radius: 8px;
+  background-color: var(--rovent-orange);
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-rovent-checkout:hover,
+.btn-rovent-checkout:focus-visible {
+  background-color: #ff6a32;
+  box-shadow: 0 6px 16px rgba(246, 88, 28, 0.25);
+  color: #fff;
+  transform: translateY(-2px);
 }
 /* Tarjetas de producto de bootstrap */
 .card-rovent {
