@@ -314,23 +314,34 @@ Deportes:
 
 for (const producto of CATALOGO) {
     html += `
-        <li class="producto">
+    <div class="col ">
+        <li class="producto ">
             
-            <div class="contenido-producto">
-                <h3>${producto.nombre}</h3>
+            <div class="contenido-producto card " style="width: 18rem;">
+                <h5 class="card-title text-center">${producto.nombre}</h5>
 
                 <img
                 src="${producto.Imagen}"
                 alt="Fotografía de ${producto.nombre}"
+                class="card-img-top"
                 >
 
-                <p>${producto.descripcion}</p>
-                <p>${producto.marca}</p>
-                <p>${producto.precio}</p>
-
+                <p class="card-text">${producto.descripcion}</p>
+                <p class="card-text">${producto.marca}</p>
+                <p class="card-text">${producto.precio}</p>
+                <button
+                    class="btn btn-outline-primary agregar-carrito"
+                    data-id="${producto.id}"
+                    type="button"
+                >
+                    Agregar al carrito
+                </button>
             </div>
         </li>
+    </div>
     `;
+
+   
 }
 
 catalogoProductos.innerHTML = html;
