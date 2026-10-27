@@ -52,7 +52,7 @@
                     </ul>
                     <!-- Botón del Carrito -->
                     <button class="btn btn-outline-light position-relative border-0" type="button"
-                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart">
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions">
                         <i class="fa-solid fa-cart-shopping fs-5"></i>
                         <span id="cart-counter"
                             class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-rovent-orange">
@@ -126,6 +126,30 @@
             </section>
             <!-- ========= Hero ============= -->
 
+            <!-- Carrito offcanvas -->
+            <div class="offcanvas offcanvas-end " data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+                aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">TU CARRITO</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+
+                    <!-- Agregar div container de cada elemento que se agrega al carrito JS -->
+
+
+                </div>
+                <div class="offcanvas-footer ">
+                    <span class="h2"> SUBTOTAL</span>
+                    <div class="container row">
+                        <button id="btnVaciar">VACIAR CARRITO</button>
+                        <button id="bntFinalizar">FINALIZAR COMPRA</button>
+
+                    </div>
+                </div>
+            </div>
+            <!--==============Carrito offcanvas=====================  -->
+
 
             <!-- Catalogo -->
             <section class="catalogo">
@@ -134,8 +158,8 @@
 
                         <!-- ID DEL UL PRODUCTOS PRUEBA CON JS  -->
                         <ul id="productos">
-                        
-                        
+
+
                         </ul>
 
 
@@ -230,8 +254,9 @@
                                 <i class="fa-brands fa-github me-1"></i> GitHub Leo (MrD3kro)
                             </a>
                         </li>
-                         <li class="nav-item mb-1">
-                            <a href="https://github.com/LauraGarciaAngel" class="nav-link p-0 text-reset" target="_blank">
+                        <li class="nav-item mb-1">
+                            <a href="https://github.com/LauraGarciaAngel" class="nav-link p-0 text-reset"
+                                target="_blank">
                                 <i class="fa-brands fa-github me-1"></i> GitHub Laura (Lazu24)
                             </a>
                         </li>
