@@ -57,3 +57,11 @@ h1, h2, h3, .navbar-brand {
   transform: translateY(-5px);
   border-color: var(--rovent-orange);
 }
+
+.bg-hero {
+  background-image: url('assets/cover-img.jpg');
+  background-size: cover;          /* Scales image to fill the container without stretching */
+  background-position: center;     /* Centers the image perfectly */
+  background-repeat: no-repeat;    /* Prevents tiling */
+  min-height: 80vh;               /* Makes the container full-viewport height */
+}
