@@ -23,14 +23,13 @@
 </head>
 
 <body>
-    <!-- navbar de navegacion a las diferentes secciones de la página -->
-    <header class="sticky-top bg-black border-bottom border-secondary">
-        <nav class="navbar navbar-expand-lg navbar-dark container">
-
+    <!-- El encabezado flota sobre la imagen del hero. -->
+    <header class="wrapper navbar-wrapper">
+        <nav class="navbar navbar-expand-lg navbar-dark rovent-navbar" aria-label="Navegación principal">
             <div class="container-fluid">
-                <!-- Titulo navbar -->
-                <a class="navbar-brand fw-bold fs-3 text-uppercase fst-italic tracking-wide" href="#">
-                    ROVENT
+                <!-- Logo enlazado al inicio de la tienda. -->
+                <a class="navbar-brand" href="#inicio" aria-label="ROVENT, inicio">
+                    <img src="assets/Rovent.svg" alt="ROVENT" width="120">
                 </a>
 
                 <!-- El carrito permanece visible junto al botón hamburguesa en móvil. -->
@@ -49,24 +48,16 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="navbarNav">
+                    <!-- Navegación principal centrada. -->
                     <ul class="navbar-nav mx-auto">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#inicio">INICIO</a></li>
                         <li class="nav-item"><a class="nav-link" href="#catalogo">FEATURES</a></li>
                         <li class="nav-item"><a class="nav-link" href="#equipo">EQUIPO</a></li>
                         <li class="nav-item"><a class="nav-link" href="#catalogo">TECNOLOGÍA</a></li>
                     </ul>
-                    <!-- Botón del Carrito -->
-                    <button class="btn btn-outline-light position-relative border-0" type="button"
-                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions">
-                        <i class="fa-solid fa-cart-shopping fs-5"></i>
-                        <span id="cart-counter"
-                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-rovent-orange">
-                            0
-                        </span>
-                    </button>
+
                 </div>
             </div>
-
         </nav>
     </header>
 
@@ -77,7 +68,7 @@
         <div class=" container-xxl bd-gutter mt-3 my-md-4 bd-layout">
 
             <!-- Hero -->
-            <section class="bg-hero">
+            <section class="hero-section bg-hero" id="inicio">
                 <h1 class="display-1">Rovent</h1>
                 <button class="btn btn-outline-secondary" type="button" aria-label="Abrir carrito"
                     data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions"
@@ -88,33 +79,38 @@
             </section>
             <!-- ========= Hero ============= -->
 
-            <!-- Carrito offcanvas -->
-            <div class="offcanvas offcanvas-end " data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-                aria-labelledby="offcanvasWithBothOptionsLabel">
+            <!-- Carrito lateral con productos en el navegador. -->
+            <aside class="offcanvas offcanvas-end text-bg-dark rovent-cart" data-bs-scroll="true" tabindex="-1"
+                id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">TU CARRITO</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-
-                    <!-- Agregar div container de cada elemento que se agrega al carrito JS -->
-
-
-                </div>
-                <div class="offcanvas-footer ">
-                    <span class="h2"> SUBTOTAL</span>
-                    <div class="container row">
-                        <button id="btnVaciar">VACIAR CARRITO</button>
-                        <button id="bntFinalizar">FINALIZAR COMPRA</button>
-
+                    <div>
+                        <h2 class="offcanvas-title h4 mb-1" id="offcanvasWithBothOptionsLabel">TU CARRITO</h2>
+                        <span class="cart-storage-status">(LocalStorage Activo)</span>
                     </div>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                        aria-label="Cerrar carrito"></button>
                 </div>
-            </div>
+                <div class="offcanvas-body cart-items" id="cart-items" aria-live="polite">
+                    <!-- JavaScript inserta aquí los productos y sus controles de cantidad. -->
+                </div>
+                <div class="cart-footer">
+                    <div class="cart-subtotal">
+                        <span>Subtotal</span>
+                        <strong id="cart-total">$0</strong>
+                    </div>
+                    <button class="btn btn-outline-danger w-100" id="clear-cart-btn" type="button">
+                        Vaciar carrito
+                    </button>
+                    <button class="btn btn-rovent-checkout w-100" id="checkout-btn" type="button">
+                        Finalizar compra
+                    </button>
+                </div>
+            </aside>
             <!--==============Carrito offcanvas=====================  -->
 
 
             <!-- Catalogo -->
-            <section class="catalogo">
+            <section class="catalogo" id="catalogo">
                 <div class="container-fluid my-5">
                     <ul class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 g-3 list-unstyled ps-0" id="productos">
                     </ul>

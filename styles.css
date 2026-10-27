@@ -2,6 +2,8 @@
 :root {
   --rovent-orange: #F6581C;
   --rovent-dark: #1C1C1C;
+  --rovent-nav-bg: rgba(28, 28, 28, 0.9);
+  --rovent-border: rgba(255, 255, 255, 0.1);
   --rovent-beige: #F3EAE2;
   --rovent-brown: #996A53;
   --rovent-olive: #869953;
@@ -45,9 +47,10 @@ ul{
 }
 /* Hero section bg */
 .hero-section {
-  min-height: 75vh;
-  background: linear-gradient(rgba(28, 28, 28, 0.5), rgba(28, 28, 28, 0.8)), 
-              url('https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  position: relative;
+  min-height: 85vh;
+  padding: 10rem clamp(1.5rem, 8vw, 8rem) 4rem;
+  scroll-margin-top: 2rem;
 }
 .hero-title {
   line-height: 0.95;
@@ -309,5 +312,36 @@ ul{
   background-size: cover;          /* Scales image to fill the container without stretching */
   background-position: center;     /* Centers the image perfectly */
   background-repeat: no-repeat;    /* Prevents tiling */
-  min-height: 80vh;               /* Makes the container full-viewport height */
+}
+
+@media (max-width: 991.98px) {
+  .navbar-wrapper {
+    padding-inline: 16px;
+  }
+
+  .navbar-controls {
+    order: 2;
+    gap: 0.25rem;
+  }
+
+  .rovent-navbar .navbar-collapse {
+    order: 3;
+    padding-top: 0.75rem;
+  }
+
+  .rovent-navbar .navbar-nav {
+    align-items: center;
+  }
+
+}
+
+@media (max-width: 575.98px) {
+  .rovent-navbar {
+    padding-inline: 0.65rem;
+    border-radius: 16px;
+  }
+
+  .hero-section {
+    padding-top: 9rem;
+  }
 }
