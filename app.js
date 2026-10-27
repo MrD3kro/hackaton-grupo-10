@@ -1,6 +1,3 @@
-const catalogoProductos = document.getElementById("productos");
-let html="";
-
 const CATALOGO = [
     {
         id: 1,
@@ -304,24 +301,50 @@ const CATALOGO = [
     }
 ];
 
-/* Para el cátalogo manejamos 2 filtros distintos:
-Categorías: 
-    balones, calzado deportivos, ropa, accesorios
-Deportes:
-    Futbol, Patinaje, Baloncesto, Volleyball,Tennis
-*/
+const catalogoProductos = document.getElementById("productos");
+const contadorCarrito = document.getElementById("cart-counter");
+const cartItems = document.getElementById("cart-items");
+const cartTotal = document.getElementById("cart-total");
+const clearCartButton = document.getElementById("clear-cart-btn");
+const checkoutButton = document.getElementById("checkout-btn");
+const cartStorageKey = "rovent-cart";
 
+const formatearPrecio = (valor) => valor.toLocaleString("es-CO", {
+    style: "currency",
+    currency: "COP",
+    maximumFractionDigits: 0
+});
 
-for (const producto of CATALOGO) {
-    html += `
+// Cada línea guarda el ID del producto y cuántas unidades hay en el carrito.
+let carrito = [];
+try {
+    const carritoGuardado = JSON.parse(localStorage.getItem(cartStorageKey) || "[]");
+    if (Array.isArray(carritoGuardado)) {
+        carrito = carritoGuardado.filter(linea =>
+            linea &&
+            Number.isInteger(linea.id) &&
+            CATALOGO.some(producto => producto.id === linea.id) &&
+            Number.isInteger(linea.cantidad) &&
+            linea.cantidad > 0
+        );
+    }
+} catch (error) {
+    console.error("No se pudo leer el carrito guardado.", error);
+}
+
+function guardarCarrito() {
+    localStorage.setItem(cartStorageKey, JSON.stringify(carrito));
+}
+
+function mostrarCatalogo() {
+    catalogoProductos.innerHTML = CATALOGO.map(producto => `
         <li class="col-12 col-sm-6 col-lg-4 col-xl-3">
-            <article class="product-card h-100">
+            <article class="product-card">
                 <img
+                    class="product-image"
                     src="${producto.Imagen}"
                     alt="Fotografía de ${producto.nombre}"
-                    class="product-image"
                     loading="lazy"
-                    decoding="async"
                 >
                 <div class="product-content">
                     <p class="product-category">${producto.categoria}</p>
@@ -329,24 +352,107 @@ for (const producto of CATALOGO) {
                     <p class="product-description">${producto.descripcion}</p>
                     <p class="product-brand">${producto.marca}</p>
                     <div class="product-purchase">
-                        <p class="product-price">${producto.precio.toLocaleString("es-CO", {
-                            style: "currency",
-                            currency: "COP",
-                            maximumFractionDigits: 0
-                        })}</p>
+                        <p class="product-price">${formatearPrecio(producto.precio)}</p>
                         <button
                             class="btn btn-rovent-primary agregar-carrito"
-                            data-id="${producto.id}"
                             type="button"
+                            data-id="${producto.id}"
                             aria-label="Agregar ${producto.nombre} al carrito"
-                        >
-                            Agregar
-                        </button>
+                        >Agregar</button>
                     </div>
                 </div>
             </article>
         </li>
-    `;
+    `).join("");
 }
 
-catalogoProductos.innerHTML = html;
+function mostrarCarrito() {
+    const cantidadTotal = carrito.reduce((total, linea) => total + linea.cantidad, 0);
+    const precioTotal = carrito.reduce((total, linea) => {
+        const producto = CATALOGO.find(item => item.id === linea.id);
+        return total + producto.precio * linea.cantidad;
+    }, 0);
+
+    contadorCarrito.textContent = cantidadTotal;
+    contadorCarrito.setAttribute("aria-label", `${cantidadTotal} productos en el carrito`);
+    cartTotal.textContent = formatearPrecio(precioTotal);
+
+    if (carrito.length === 0) {
+        cartItems.innerHTML = '<p class="cart-empty">Tu carrito está vacío.</p>';
+        return;
+    }
+
+    cartItems.innerHTML = carrito.map(linea => {
+        const producto = CATALOGO.find(item => item.id === linea.id);
+
+        return `
+            <article class="cart-item">
+                <img class="cart-item-image" src="${producto.Imagen}" alt="">
+                <div>
+                    <h3 class="cart-item-name">${producto.nombre}</h3>
+                    <span class="cart-item-price">${formatearPrecio(producto.precio * linea.cantidad)}</span>
+                </div>
+                <div class="cart-item-controls">
+                    <button class="cart-quantity-button" type="button"
+                        data-accion="restar" data-id="${producto.id}" aria-label="Disminuir cantidad">−</button>
+                    <span class="cart-quantity">${linea.cantidad}</span>
+                    <button class="cart-quantity-button" type="button"
+                        data-accion="sumar" data-id="${producto.id}" aria-label="Aumentar cantidad">+</button>
+                    <button class="cart-remove-button" type="button"
+                        data-accion="quitar" data-id="${producto.id}" aria-label="Eliminar ${producto.nombre}">
+                        <i class="fa-solid fa-trash-can" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </article>
+        `;
+    }).join("");
+}
+
+function agregarAlCarrito(idProducto) {
+    const linea = carrito.find(item => item.id === idProducto);
+    if (linea) {
+        linea.cantidad += 1;
+    } else {
+        carrito.push({ id: idProducto, cantidad: 1 });
+    }
+    guardarCarrito();
+    mostrarCarrito();
+}
+
+mostrarCatalogo();
+mostrarCarrito();
+
+catalogoProductos.addEventListener("click", event => {
+    if (!(event.target instanceof Element)) return;
+    const boton = event.target.closest(".agregar-carrito");
+    if (boton) agregarAlCarrito(Number(boton.dataset.id));
+});
+
+cartItems.addEventListener("click", event => {
+    if (!(event.target instanceof Element)) return;
+    const boton = event.target.closest("button[data-accion]");
+    if (!boton) return;
+
+    const idProducto = Number(boton.dataset.id);
+    const linea = carrito.find(item => item.id === idProducto);
+    if (!linea) return;
+
+    if (boton.dataset.accion === "sumar") linea.cantidad += 1;
+    if (boton.dataset.accion === "restar") linea.cantidad -= 1;
+    if (boton.dataset.accion === "quitar" || linea.cantidad === 0) {
+        carrito = carrito.filter(item => item.id !== idProducto);
+    }
+
+    guardarCarrito();
+    mostrarCarrito();
+});
+
+clearCartButton.addEventListener("click", () => {
+    carrito = [];
+    guardarCarrito();
+    mostrarCarrito();
+});
+
+checkoutButton.addEventListener("click", () => {
+    alert("El pago todavía no está disponible en esta tienda de demostración.");
+});
