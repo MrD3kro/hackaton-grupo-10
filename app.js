@@ -160,7 +160,7 @@ const CATALOGO = [
         deporte: "Futbol",
         marca: "Cancha",
         descripcion: "Camiseta ligera y cómoda para entrenamientos y partidos.",
-        Imagen: "imagenes/camiseta-futbol.jpg"
+        Imagen: "https://www.puntoblanco.co/cdn/shop/files/752496-051743-1.jpg?v=1790963138"
     },
     {
         id: 17,
@@ -170,7 +170,7 @@ const CATALOGO = [
         deporte: "Futbol",
         marca: "Golazo",
         descripcion: "Conjunto de camiseta y pantaloneta para jugar fútbol.",
-        Imagen: "imagenes/uniforme-futbol.jpg"
+        Imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMP6JtnYOWX9mB2G339slJgbpMoNy9AE9i9vlHVuY-cUMW0IovSrh24e9Y&s=10"
     },
     {
         id: 18,
@@ -180,7 +180,7 @@ const CATALOGO = [
         deporte: "Patinaje",
         marca: "Veloci",
         descripcion: "Prenda elástica que facilita el movimiento durante el entrenamiento.",
-        Imagen: "imagenes/licra-patinaje.jpg"
+        Imagen: "https://exitocol.vteximg.com.br/arquivos/ids/4984851/licra-patinaje-champion.jpg?v=637412241111570000"
     },
     {
         id: 19,
@@ -190,7 +190,7 @@ const CATALOGO = [
         deporte: "Baloncesto",
         marca: "DunkPro",
         descripcion: "Camiseta cómoda para entrenar o jugar partidos.",
-        Imagen: "imagenes/camiseta-baloncesto.jpg"
+        Imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3qGN2pUO-TD1dAFKY9gVvcRcS7hDzWM4tuLNLbqAsgw&s=10"
     },
     {
         id: 20,
@@ -200,7 +200,7 @@ const CATALOGO = [
         deporte: "Baloncesto",
         marca: "AroMax",
         descripcion: "Pantaloneta ligera y holgada para entrenamientos y partidos.",
-        Imagen: "imagenes/pantaloneta-baloncesto.jpg"
+        Imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFqwFsWbeyGFyqpJfR0FOKkkXabduoV2m3qUoMyoLxIQ&s=10"
     },
     {
         id: 21,
@@ -210,7 +210,7 @@ const CATALOGO = [
         deporte: "Volleyball",
         marca: "VoleiSport",
         descripcion: "Camiseta deportiva de secado rápido para entrenar.",
-        Imagen: "imagenes/camiseta-volleyball.jpg"
+        Imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqZ7qRffJ1slmpIdLQLtn8EI7cBV4KOfRKmFgCk9__Tg&s=10"
     },
     {
         id: 22,
@@ -220,7 +220,7 @@ const CATALOGO = [
         deporte: "Tennis",
         marca: "MatchPoint",
         descripcion: "Falda deportiva cómoda para moverse con libertad en la cancha.",
-        Imagen: "imagenes/falda-tenis.jpg"
+        Imagen: "https://img.ltwebstatic.com/v4/j/pi/2026/06/25/d6/17823780248b90eccef71f808f5ec72840033b8c0e_thumbnail_750x999.jpg"
     },
     {
         id: 23,
@@ -230,7 +230,7 @@ const CATALOGO = [
         deporte: "Tennis",
         marca: "MatchPoint",
         descripcion: "Pantaloneta ligera con bolsillos para entrenar y jugar.",
-        Imagen: "imagenes/pantaloneta-tenis.jpg"
+        Imagen: "https://contents.mediadecathlon.com/p2454700/k$3044274e5c6f95734aaf630db5f37e18/picture.jpg"
     },
     {
         id: 24,
@@ -240,7 +240,7 @@ const CATALOGO = [
         deporte: "Futbol",
         marca: "AventuraFit",
         descripcion: "Morral para transportar ropa, botella y elementos de entrenamiento.",
-        Imagen: "imagenes/morral-deportivo.jpg"
+        Imagen: "https://acdn-us.mitiendanube.com/stores/007/060/522/products/maleta-morral-gimnasio-fitness-deportivo-pbold-1-e2c9ecbfc2a22a8bf717659880388551-1024-1024.webp"
     },
     {
         id: 25,
@@ -250,7 +250,7 @@ const CATALOGO = [
         deporte: "Futbol",
         marca: "Golazo",
         descripcion: "Protecciones para ayudar a proteger las espinillas durante el juego.",
-        Imagen: "imagenes/espinilleras.jpg"
+        Imagen: "https://www.sportline.com.co/media/catalog/product/s/p/sp0040-009-phsfp001-1000.png?optimize=medium&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:&format=jpeg"
     },
     {
         id: 26,
@@ -260,7 +260,7 @@ const CATALOGO = [
         deporte: "Patinaje",
         marca: "RuedaLibre",
         descripcion: "Casco ajustable para acompañar las prácticas de patinaje.",
-        Imagen: "imagenes/casco-patinaje.jpg"
+        Imagen: "https://contents.mediadecathlon.com/p2571597/k$eb16ce180b3f0e8e9cd3bfe2f4574e18/picture.jpg"
     },
     {
         id: 27,
@@ -270,7 +270,7 @@ const CATALOGO = [
         deporte: "Volleyball",
         marca: "VoleiSport",
         descripcion: "Rodilleras acolchadas para entrenamientos y partidos de voleibol.",
-        Imagen: "imagenes/rodilleras.jpg"
+        Imagen: "https://exitocol.vteximg.com.br/arquivos/ids/30957644/rodilleras-deportivas-x2-voleibol-patinaje-basquet-multiusos.jpg?v=638941555245500000"
     },
     {
         id: 28,
@@ -280,7 +280,7 @@ const CATALOGO = [
         deporte: "Baloncesto",
         marca: "AroMax",
         descripcion: "Muñequeras absorbentes para entrenamientos y partidos.",
-        Imagen: "imagenes/muñequeras.jpg"
+        Imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuUW7p0C9qVgZJ8M-2ZCcuokbupqzVDV6IZkZt4RF2CUUsQsuWzLntanJi&s=10"
     },
     {
         id: 29,
@@ -290,7 +290,7 @@ const CATALOGO = [
         deporte: "Tennis",
         marca: "MatchPoint",
         descripcion: "Raqueta recreativa para practicar golpes y jugar partidos.",
-        Imagen: "imagenes/raqueta-tenis.jpg"
+        Imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQau5tPAt4EhCaJoELL5FgCRj_ed6kG_Vqnu_MBOW8CL4uNxH52ZwsV2TA&s=10"
     },
     {
         id: 30,
@@ -300,7 +300,7 @@ const CATALOGO = [
         deporte: "Patinaje",
         marca: "Veloci",
         descripcion: "Bolso ventilado para transportar patines y accesorios de entrenamiento.",
-        Imagen: "imagenes/bolso-patines.jpg"
+        Imagen: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRF3A9EhM9EFMJqSFwplCdbrVDw_1ItCCW2Lx1f8ePIfw&s=10"
     }
 ];
 
